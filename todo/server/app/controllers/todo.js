@@ -5,7 +5,6 @@ mongoose = require('mongoose');
 Todo = mongoose.model('Todo');
 asyncHandler = require('express-async-handler');
 
-
 module.exports = function (app, config) {
     app.use('/api', router);
 

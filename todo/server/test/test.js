@@ -24,4 +24,4 @@ it('it should return 404', (done) => {
 			res.should.have.status(404);
 			done();
 		});
-});n
+});
