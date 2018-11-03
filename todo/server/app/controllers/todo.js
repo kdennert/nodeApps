@@ -42,11 +42,6 @@ module.exports = function (app, config) {
             })
     }));
 
-    // router.route('/users/password/:id').put(function (req, res, next) {
-    //     logger.log('info', 'Update password for user %s', req.params.id);
-    //     res.status(200).json({ message: "Update password for user " + req.params.id });
-    // });
-
     router.delete('/todos/:id', asyncHandler(async (req, res) => {
         logger.log('info', 'Deleting todo %s', req.params.id);
         await Todo.remove({ _id: req.params.id })
@@ -54,15 +49,4 @@ module.exports = function (app, config) {
                 res.status(200).json(result);
             })
     }));
-
-
-    // router.route('/login').post(function (req, res, next) {
-    //     console.log(req.body);
-    //     var email = req.body.email
-    //     var password = req.body.password;
-
-    //     var obj = { 'email': email, 'password': password };
-    //     res.status(201).json(obj);
-
-    // });
 };
