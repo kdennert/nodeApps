@@ -19,6 +19,7 @@
     "express-async-handler": "^1.1.4",
     "grunt": "^1.0.3",
     "grunt-contrib-nodemon": "^0.5.4",
+    "jshint-stylish": "^2.2.1",
     "logger": "0.0.1",
     "mongoose": "^5.3.7",
     "morgan": "^1.9.1",

@@ -12,6 +12,9 @@ const logger = winston.createLogger({
             maxSize: '20m',
             maxFiles: '14d'
         }),
+        
+        //new winston.transports.Console(),
+
         new (winston.transports.DailyRotateFile)({
             filename: 'log/application-%DATE%.log',
             datePattern: 'YYYY-MM-DD-HH',
