@@ -5,7 +5,7 @@ var logger = require('./logger');
 
 var mongoose = require('mongoose');
 var bluebird = require('bluebird');
-var glob = require('glob');
+// var glob = require('glob');
 
 
 module.exports = function (app, config) {
@@ -39,19 +39,19 @@ module.exports = function (app, config) {
 
   app.use(express.static(config.root + '/public'));
 
-//require('../app/models/users')(app, config);
+  require('../app/models/foos');
 
-  var models = glob.sync(config.root + '/app/models/*.js');
-  models.forEach(function (model) {
-    require(model);
-  });
+  // var models = glob.sync(config.root + '/app/models/*.js');
+  // models.forEach(function (model) {
+  //   require(model);
+  // });
 
-//require('../app/controllers/users')(app, config);
+  require('../app/controllers/foos')(app,config);
 
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  controllers.forEach(function (controller) {
-    require(controller)(app, config);
-  });
+  // var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  // controllers.forEach(function (controller) {
+  //   require(controller)(app, config);
+  // });
 
   app.use(function (req, res) {
     logger.log('error', 'File not found');

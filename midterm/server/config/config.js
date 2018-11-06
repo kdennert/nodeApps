@@ -6,7 +6,7 @@ var config = {
     development: {
         root: rootPath,
         app: { name: 'midterm' },
-        port: 5000,
+        port: 3300,
         db: 'mongodb://127.0.0.1/helpMe-dev'
     },
 

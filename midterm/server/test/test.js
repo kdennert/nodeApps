@@ -7,9 +7,9 @@ let should = chai.should();
 
 chai.use(chaiHttp);
 
-it('it should GET the index.html file', (done) => {
+it('it should GET the midterm.html file', (done) => {
 	chai.request(server)
-		.get('/index.html')
+		.get('/midterm.html')
 		.end((err, res) => {
 			res.should.have.status(200);
 			res.should.be.html;
@@ -18,7 +18,7 @@ it('it should GET the index.html file', (done) => {
 });
 
 it('it should return 404', (done) => {
-	chai.request(server).get('/index2.html')
+	chai.request(server).get('/midterm2.html')
 		.end((err, res) => {
 			res.should.have.status(404);
 			done();
