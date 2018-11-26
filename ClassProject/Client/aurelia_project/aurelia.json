@@ -45,6 +45,17 @@
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
+          {
+            "name": "aurelia-fetch-client",
+            "path": "../node_modules/aurelia-fetch-client/dist/amd",
+            "main": "aurelia-fetch-client"
+          },
+          {
+            "name": "regenerator-runtime",
+            "path": "../node_modules/regenerator-runtime",
+            "main": "runtime-module"
+            },
+            
           "aurelia-bootstrapper",
           "aurelia-loader-default",
           "aurelia-pal-browser",
@@ -52,11 +63,7 @@
             "name": "aurelia-testing",
             "env": "dev"
           },
-          {
-            "name": "aurelia-fetch-client",
-            "path": "../node_modules/aurelia-fetch-client/dist/amd",
-            "main": "aurelia-fetch-client"
-          },
+          
           "text"
         ]
       }
