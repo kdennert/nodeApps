@@ -36,17 +36,33 @@ module.exports = function (app, config) {
 
     router.put('/helpTickets', asyncHandler(async (req, res) => {
         logger.log('info', 'Updating HelpTicket');
-        await HelpTicket.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true })
+        await HelpTicket.findOneAndUpdate({ _id: req.body.helpTicket._id }, req.body.helpTicket, { new: true })
             .then(result => {
-                res.status(200).json(result);
+                if (req.body.content) {
+                    req.body.content.helpTicketId = result._id;
+                    var helpTicketContent = new HelpTicketContent(req.body.content);
+                    helpTicketContent.save()
+                        .then(content => {
+                            res.status(201).json(result);
+                        })
+                } else {
+                    res.status(200).json(result);
+                }
             })
-    }))
+    }));
 
     router.post('/helpTickets', asyncHandler(async (req, res) => {
         logger.log('info', 'Creating HelpTicket');
-        var helpTicket = new HelpTicket(req.body);
-        const result = await helpTicket.save()
-        res.status(200).json(result);
+        var helpTicket = new HelpTicket(req.body.helpTicket);
+        await helpTicket.save()
+            .then(result => {
+                req.body.content.helpTicketId = result._id;
+                var helpTicketContent = new HelpTicketContent(req.body.content);
+                helpTicketContent.save()
+                    .then(content => {
+                        res.status(201).json(result);
+                    })
+            })
     }));
 
     router.delete('/helpTickets/:id', asyncHandler(async (req, res) => {
@@ -78,6 +94,6 @@ module.exports = function (app, config) {
         logger.log('info', 'Creating HelpTicket Content');
         var helpTicketContent = new HelpTicketContent(req.body);
         const result = await helpTicketContent.save()
-            res.status(201).json(result);
-        }));
+        res.status(201).json(result);
+    }));
 };

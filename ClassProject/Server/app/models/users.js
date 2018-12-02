@@ -41,10 +41,10 @@ userSchema.methods.comparePassword = function (passw, cb) {
     });
 };
 
-// userSchema.virtual('fullName')
-// .get(function () {
-//     return this.firstName + ' ' + this.lastName;
-// });
+userSchema.virtual('fullName')
+.get(function () {
+    return this.firstName + ' ' + this.lastName;
+});
 
 module.exports = 
  Mongoose.model('User', userSchema);

@@ -1,10 +1,10 @@
 var express = require('express'),
     router = express.Router(),
     logger = require('../../config/logger');
-mongoose = require('mongoose');
-User = mongoose.model('User');
-asyncHandler = require('express-async-handler');
-passportService = require('../../config/passport'),
+    mongoose = require('mongoose');
+    User = mongoose.model('User');
+    asyncHandler = require('express-async-handler');
+    passportService = require('../../config/passport'),
     passport = require('passport');
 
 var requireLogin = passport.authenticate('local', { session: false });
@@ -68,10 +68,10 @@ module.exports = function (app, config) {
     });
 
 
-    // router.route('/users/password/:id').put(function (req, res, next) {
-    //     logger.log('info', 'Update password for user %s', req.params._id);
-    //     res.status(200).json({ message: "Update password for user " + req.params._id });
-    // });
+    router.route('/users/password/:id').put(function (req, res, next) {
+        logger.log('info', 'Update password for user %s', req.params._id);
+        res.status(200).json({ message: "Update password for user " + req.params._id });
+    });
 
     router.delete('/users/:id', requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Deleting user %s', req.params._id);
