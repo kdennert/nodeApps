@@ -60,11 +60,22 @@ module.exports = function (app, config) {
     res.send('404 Not Found');
   });
 
+  // app.use(function (err, req, res, next) {
+  //   logger.error(err.stack);
+  //   res.type('text/plan');
+  //   res.status(500);
+  //   res.send('500 Server Error');
+  // });
+
   app.use(function (err, req, res, next) {
-    logger.error(err.stack);
+    console.log(err);
+    if (process.env.NODE_ENV !== 'test') logger.log(err.stack,'error');
     res.type('text/plan');
-    res.status(500);
-    res.send('500 Server Error');
+    if(err.status){
+      res.status(err.status).send(err.message);
+    } else {
+      res.status(500).send('500 Server Error');
+    }
   });
 
   logger.log('info', "Starting application");

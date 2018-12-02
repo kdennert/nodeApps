@@ -53,9 +53,13 @@
           {
             "name": "regenerator-runtime",
             "path": "../node_modules/regenerator-runtime",
-            "main": "runtime-module"
-            },
-            
+            "main": "runtime"
+          },
+          {
+            "name": "aurelia-auth",
+            "path": "../node_modules/aurelia-auth/dist/amd",
+            "main": "aurelia-auth"
+          },
           "aurelia-bootstrapper",
           "aurelia-loader-default",
           "aurelia-pal-browser",
@@ -63,7 +67,6 @@
             "name": "aurelia-testing",
             "env": "dev"
           },
-          
           "text"
         ]
       }
