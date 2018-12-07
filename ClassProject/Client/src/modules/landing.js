@@ -9,4 +9,8 @@ export class Landing{
         this.password = "";
         this.authenticated = false;
     }
+    
+  login(){
+    this.router.navigate('users');
+}
 }

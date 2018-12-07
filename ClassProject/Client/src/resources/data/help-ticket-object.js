@@ -1,11 +1,12 @@
 import { inject } from 'aurelia-framework';
 import { DataServices } from './data-services';
 @inject(DataServices)
+
 export class HelpTicket {
 
     constructor(data) {
         this.data = data;
-        this.USER_SERVICE = 'helpTickets';
+        this.HELP_TICKET_SERVICE = 'helpTickets';
     }
 
     async getHelpTickets(userObj) {

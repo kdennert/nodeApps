@@ -1,7 +1,7 @@
 <template>
 	    <h1>${message}</h1>
-	    <button click.trigger="newUser()">New User</button>
-		<button click.trigger="logout()">Logout</button>
+	<!--     <button click.trigger="newUser()">New User</button>
+		<button click.trigger="logout()">Logout</button> -->
 
 	    <compose show.bind="showUserEditForm" view="./components/editUser.html"> </compose>
 	    <compose show.bind="!showUserEditForm" view="./components/tableUsers.html"> </compose>

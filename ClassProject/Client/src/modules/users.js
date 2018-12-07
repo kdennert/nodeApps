@@ -33,7 +33,7 @@ export class Users {
       password: "",
     }
     this.openEditForm();
-// this.showUserEditForm = true;
+this.showUserEditForm = true;
   }
 
   editUser(user) {

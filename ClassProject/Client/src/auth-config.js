@@ -4,7 +4,7 @@ var authConfig = {
     tokenName: 'token',
     authHeader: 'Authorization',
     authToken: '',
-    logoutRedirect: '#/landing'
+    logoutRedirect: '#landing'
   }
   
   export default authConfig;

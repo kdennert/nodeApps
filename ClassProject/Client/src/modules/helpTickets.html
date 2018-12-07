@@ -1,3 +1,8 @@
 <template>
-    
+    <h1>${message}</h1>
+     <button click.trigger="newHelpTicket()">New Help Ticket</button>
+		<button click.trigger="logout()">Logout</button>
+
+	    <compose show.bind="showHelpTicketEditForm" view="./components/editHelpTicket.html"> </compose>
+	    <compose show.bind="!showHelpTicketEditForm" view="./components/tableHelpTicket.html"> </compose>
     </template>

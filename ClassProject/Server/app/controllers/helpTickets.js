@@ -1,10 +1,10 @@
 var express = require('express'),
     router = express.Router(),
     logger = require('../../config/logger');
-mongoose = require('mongoose');
-HelpTicket = mongoose.model('HelpTicket');
-HelpTicketContent = mongoose.model('HelpTicketContent');
-asyncHandler = require('express-async-handler');
+    mongoose = require('mongoose');
+    HelpTicket = mongoose.model('HelpTicket');
+    HelpTicketContent = mongoose.model('HelpTicketContent');
+    asyncHandler = require('express-async-handler');
 
 module.exports = function (app, config) {
     app.use('/api', router);
@@ -33,6 +33,17 @@ module.exports = function (app, config) {
             res.status(200).json(result);
         })
     }))
+
+    // router.get('/helpTickets/:id', asyncHandler(async (req, res) => {
+    //     logger.log('info', 'Get Help Tickets of users', req.params.id);
+    //     await HelpTicket.findById(req.params.id).then(result => {
+    //         res.status(200).json(result);
+    //         if(userObj.role == 'user'){
+    //             url += '/user/' + userObj._id;
+    //         }
+            
+        // })
+    // }))
 
     router.put('/helpTickets', asyncHandler(async (req, res) => {
         logger.log('info', 'Updating HelpTicket');

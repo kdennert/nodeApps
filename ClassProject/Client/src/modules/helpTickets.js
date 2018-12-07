@@ -1,16 +1,26 @@
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
+import { HelpTicket } from '../resources/data/help-ticket-object';
 
-@inject(Router)
+@inject(Router, HelpTicket)
 export class HelpTickets {
-    constructor(helpTicket) {
-        this.helpTickets = helpTicket;
+    constructor(helpTickets) {
+        this.helpTickets = helpTickets;
         this.showHelpTicketEditForm = false;
         this.userObj = JSON.parse(sessionStorage.getItem('userObj'));
     }
     async activate() {
         await this.helpTickets.getHelpTickets(this.userObj);
     }
+
+    // attached() {
+    //     feather.replace()
+    //   }
+
+    // async getHelpTickets() {
+    //     await this.helpTickets.getHelpTickets();
+    //   }
+
     newHelpTicket() {
         this.helpTicket = {
             title: "",
@@ -30,7 +40,7 @@ export class HelpTickets {
             personId: this.userObj._id,
             content: ""
         };
-        await this.helpTickets.getHelpTicketsContents(helpTicket._id)
+        await this.helpTickets.getHelpTicketContents(helpTicket._id)
         this.showEditForm();
     }
     async save() {
@@ -39,7 +49,7 @@ export class HelpTickets {
             this.helpTicket.ownerId = this.userObj._id;
         }
         let helpTicket = {helpTicket: this.helpTicket, content: this.helpTicketContent }
-        await this.helpTickets.saveHelpTicket(helpTicket);
+        await this.helpTicket.saveHelpTicket(helpTicket);
         await this.getHelpTickets();
         this.back();
         }

@@ -9,8 +9,8 @@ export class NavBar {
         this.router = router;
         this.auth = auth;
         this.loginError = "";
-        this.email = "";
-        this.password = "";
+        // this.email = "";
+        // this.password = "";
     }
 
     bind() {
@@ -41,10 +41,11 @@ export class NavBar {
     };
 
     logout() {
-        if (this.userObj) this.auth.logout(this.userObj.email);
+        // if (this.userObj) this.auth.logout(this.userObj.email);
         sessionStorage.removeItem('user');
         this.isAuthenticated = this.auth.isAuthenticated();
         this.auth.logout();
+
     }
 
 }
