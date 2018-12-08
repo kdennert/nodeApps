@@ -4,8 +4,10 @@ import { HelpTicket } from '../resources/data/help-ticket-object';
 
 @inject(Router, HelpTicket)
 export class HelpTickets {
-    constructor(helpTickets) {
+    constructor(router, helpTickets) {
+        this.router = router;
         this.helpTickets = helpTickets;
+        this.message = "Help Tickets";
         this.showHelpTicketEditForm = false;
         this.userObj = JSON.parse(sessionStorage.getItem('userObj'));
     }
@@ -13,13 +15,13 @@ export class HelpTickets {
         await this.helpTickets.getHelpTickets(this.userObj);
     }
 
-    // attached() {
-    //     feather.replace()
-    //   }
+    attached() {
+        feather.replace()
+    }
 
-    // async getHelpTickets() {
-    //     await this.helpTickets.getHelpTickets();
-    //   }
+    async getHelpTickets() {
+        await this.helpTickets.getHelpTickets();
+    }
 
     newHelpTicket() {
         this.helpTicket = {
@@ -32,8 +34,10 @@ export class HelpTickets {
             personId: this.userObj._id,
             content: ""
         };
-        this.showEditForm();
+        this.openHelpTicketEditForm();
+        this.showHelpTicketEditForm = true;
     }
+
     async editHelpTicket(helpTicket) {
         this.helpTicket = helpTicket;
         this.helpTicketContent = {
@@ -41,18 +45,34 @@ export class HelpTickets {
             content: ""
         };
         await this.helpTickets.getHelpTicketContents(helpTicket._id)
-        this.showEditForm();
+        this.showHelpTicketEditForm();
     }
+
+    openHelpTicketEditForm() {
+        this.showHelpTicketEditForm = true;
+        setTimeout(() => { $("#firstName").focus(); }, 500);
+      }
     async save() {
         if (this.helpTicket && this.helpTicket.title && this.helpTicketContent && this.helpTicketContent.content) {
-        if(this.userObj.role !== 'user'){
-            this.helpTicket.ownerId = this.userObj._id;
+            if (this.userObj.role !== 'user') {
+                this.helpTicket.ownerId = this.userObj._id;
+            }
+            let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent }
+            await this.helpTickets.saveHelpTicket(helpTicket);
+            await this.getHelpTickets();
+            this.back();
         }
-        let helpTicket = {helpTicket: this.helpTicket, content: this.helpTicketContent }
-        await this.helpTicket.saveHelpTicket(helpTicket);
-        await this.getHelpTickets();
-        this.back();
+    }
+
+    async delete() {
+        if (this.helpTicket) {
+          await this.helpTickets.delete(this.helpTicket);
+          await this.getHelpTickets();
+          this.back();
         }
-        }
-        
+      }
+
+    back() {
+        this.showHelpTicketEditForm = false;
+      }
 }

@@ -34,15 +34,15 @@ module.exports = function (app, config) {
         })
     }))
 
-    // router.get('/helpTickets/:id', asyncHandler(async (req, res) => {
-    //     logger.log('info', 'Get Help Tickets of users', req.params.id);
+    // router.get('/helpTickets/user/:id', asyncHandler(async (req, res) => {
+    //     logger.log('info', 'Get Help Tickets of this user', req.params.id);
     //     await HelpTicket.findById(req.params.id).then(result => {
     //         res.status(200).json(result);
     //         if(userObj.role == 'user'){
     //             url += '/user/' + userObj._id;
     //         }
             
-        // })
+    //     })
     // }))
 
     router.put('/helpTickets', asyncHandler(async (req, res) => {

@@ -11,6 +11,6 @@ export class Landing{
     }
     
   login(){
-    this.router.navigate('users');
+    this.router.navigate('home');
 }
 }
