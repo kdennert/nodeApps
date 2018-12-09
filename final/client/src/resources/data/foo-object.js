@@ -9,7 +9,7 @@ export class Foo {
         this.FOO_SERVICE = 'foos';
     }
 
-    async saveUser(foo) {
+    async saveFoo(foo) {
         let serverResponse;
         if (foo) {
             if (foo._id) {
@@ -30,9 +30,9 @@ export class Foo {
     async getFoos() {
         let response = await this.data.get(this.FOO_SERVICE);
         if (!response.error) {
-            this.usersArray = response;
+            this.foosArray = response;
         } else {
-            this.usersArray = [];
+            this.foosArray = [];
         }
     }
 

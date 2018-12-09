@@ -7,6 +7,7 @@ export class HelpTicket {
     constructor(data) {
         this.data = data;
         this.HELP_TICKET_SERVICE = 'helpTickets';
+        this.HELP_TICKETCONTENT_SERVICE = 'helpTicketContent';
     }
 
     async getHelpTickets(userObj) {
@@ -33,4 +34,28 @@ export class HelpTicket {
             return serverResponse;
         }
     }
+
+    async deleteHelpTicket(helpTicket) {
+        console.log("deleting ticket and contents");
+        if (helpTicket) {
+            await this.data.delete(this.HELP_TICKET_SERVICE + '/' + helpTicket._id)
+            console.log(helpTicket._id);
+        }
+    }
+
+    async getHelpTicketContent(helpTicketId) {
+        let url = this.HELP_TICKETCONTENT_SERVICE + '/helpTicket/' + helpTicketId;
+        let response = await this.data.get(url);
+        console.log(helpTicketId);
+        if (!response.error) {
+            this.helpTicketContentArray = response;
+        } else {
+            this.helpTicketContentArray = [];
+        }     
+    }
+
+    async uploadFile(files, id) {
+        await this.data.uploadFiles(files, this.HELP_TICKETCONTENT_SERVICE + "/upload/" + id );
+    }
+    
 }

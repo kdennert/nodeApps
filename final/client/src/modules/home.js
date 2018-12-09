@@ -7,4 +7,4 @@ export class Home {
 	this.router = router;
           this.message = 'Home';
   }
-};
+}

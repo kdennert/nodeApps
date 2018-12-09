@@ -1,6 +1,6 @@
 var Mongoose = require('mongoose');
 var Schema = Mongoose.Schema;
-// var Bcrypt = require('bcryptjs');
+var Bcrypt = require('bcryptjs');
 
 var userSchema = new Schema({
     firstName: { type: String, require: true },
@@ -30,14 +30,14 @@ userSchema.pre('save', function (next) {
     }
 });
 
-// userSchema.methods.comparePassword = function (passw, cb) {
-//     Bcrypt.compare(passw, this.password, function (err, isMatch) {
-//         if (err) {
-//             return cb(err);
-//         }
-//         cb(null, isMatch);
-//     });
-// };
+userSchema.methods.comparePassword = function (passw, cb) {
+    Bcrypt.compare(passw, this.password, function (err, isMatch) {
+        if (err) {
+            return cb(err);
+        }
+        cb(null, isMatch);
+    });
+};
 
 userSchema.virtual('fullName')
     .get(function () {

@@ -19,7 +19,7 @@ module.exports = function (app, config) {
     throw new Error('unable to connect to database at ' + config.db);
   });
 
-  app.use(cors({origin: 'http://git.ucc.uwm.edu'}));
+  app.use(cors({origin: 'http://git.ucc.uwm.edu/'}));
 
   if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('dev'));

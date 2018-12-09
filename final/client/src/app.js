@@ -18,11 +18,18 @@ export class App {
         auth: true
       },
       {
+        route: 'users',
+        moduleId: './modules/users',
+        name: 'Users',
+        auth: true
+      },
+      {
         route: 'foos',
         moduleId: './modules/foos',
         name: ' Foos',
         auth: true
-      },
+      }
+      
     ]);
   }
 }

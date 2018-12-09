@@ -8,7 +8,8 @@ var config = {
         app: { name: 'ClassProject' },
         port: 5000,
         db: 'mongodb://127.0.0.1/helpMe-dev',
-        secret: "supercalafragilistic"
+        secret: "supercalafragilistic",
+        uploads: './public/uploadedFiles'
 
     },
 
@@ -17,7 +18,8 @@ var config = {
         app: { name: 'ClassProject' },
         port: 4000,
         db: 'mongodb://127.0.0.1/helpMe-test',
-        secret: "supercalafragilistic"
+        secret: "supercalafragilistic",
+        uploads: './public/uploadedFiles'
 
     },
 
@@ -26,7 +28,8 @@ var config = {
         app: { name: 'ClassProject' },
         port: 80,
         db: 'mongodb://127.0.0.1/helpMe',
-        secret: "supercalafragilistic"
+        secret: "supercalafragilistic",
+        uploads: './public/uploadedFiles'
 
     }
 };
