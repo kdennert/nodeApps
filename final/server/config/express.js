@@ -19,7 +19,7 @@ module.exports = function (app, config) {
     throw new Error('unable to connect to database at ' + config.db);
   });
 
-  app.use(cors({origin: 'http://git.ucc.uwm.edu/'}));
+  app.use(cors({origin: 'http://localhost:9000/'}));
 
   if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('dev'));
@@ -59,13 +59,6 @@ module.exports = function (app, config) {
     res.status(404);
     res.send('404 Not Found');
   });
-
-  // app.use(function (err, req, res, next) {
-  //   logger.error(err.stack);
-  //   res.type('text/plan');
-  //   res.status(500);
-  //   res.send('500 Server Error');
-  // });
 
   app.use(function (err, req, res, next) {
     console.log(err);

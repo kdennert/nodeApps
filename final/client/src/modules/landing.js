@@ -5,12 +5,12 @@ import { Router } from 'aurelia-router';
 export class Landing{
     constructor(router) {
         this.router = router;
-        this.email = "";
-        this.password = "";
-        this.authenticated = false;
+    //     this.email = "";
+    //     this.password = "";
+    //     this.authenticated = false;
     }
     
-  login(){
+  go(){
     this.router.navigate('home');
 }
 }

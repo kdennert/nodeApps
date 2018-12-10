@@ -3,7 +3,7 @@ import { DataServices } from './data-services';
 @inject(DataServices)
 
 export class Foo {
-    
+
     constructor(data) {
         this.data = data;
         this.FOO_SERVICE = 'foos';
@@ -21,14 +21,21 @@ export class Foo {
         }
     }
 
-    async delete(foo) {
-        if (foo && foo._id) {
+    async deleteFoo(foo) {
+        console.log("deleting foo");
+        if (foo) {
             await this.data.delete(this.FOO_SERVICE + '/' + foo._id)
+            console.log(foo._id);
         }
     }
 
-    async getFoos() {
-        let response = await this.data.get(this.FOO_SERVICE);
+   
+    async getFoos(userObj) {
+        let url = this.Foo_SERVICE;
+        if (userObj.role == 'user') {
+            url += '/user/' + userObj._id;
+        }
+        let response = await this.data.get(url);
         if (!response.error) {
             this.foosArray = response;
         } else {

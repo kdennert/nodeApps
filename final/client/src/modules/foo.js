@@ -2,11 +2,10 @@ import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { Foo } from '../resources/data/foo-object';
 
-@inject(Router, Foo)
+@inject(Foo)
 export class Foos {
-    constructor(router, foos) {
-        this.router = router;
-        this.foos = foos;
+    constructor(foos) {
+        this.foos = foo;
         this.message = "Foos";
         this.showFooEditForm = false;
         this.userObj = JSON.parse(sessionStorage.getItem('userObj'));
@@ -20,13 +19,16 @@ export class Foos {
     }
 
     async getFoos() {
-        await this.foos.getFoos();
+        await this.foos.getFoos(this.userObj);
     }
 
     newFoo() {
         this.foo = {
             foo: "",
-            woo: ""
+            woo: "",
+            personId: this.userObj._id,
+            ownerId: "a1a1a1a1a1a1a1a1a1a1a1a1",
+            status: 'new'
         };
         
         this.openFooEditForm();
