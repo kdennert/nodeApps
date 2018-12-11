@@ -6,8 +6,8 @@ export class Home {
         this.router = router;
         this.message = 'Home Page';
     }
-    GetFoo() {
-        this.router.navigate('foos');
+    GetTodo() {
+        this.router.navigate('todos');
     }
 }
 

@@ -5,8 +5,8 @@ import { Router } from 'aurelia-router';
 export class NavBar {
     constructor(router) {
         this.router = router;
-        // this.email = "";
-        // this.password = "";
+        this.email = "";
+        this.password = "";
     }
 
     attached() {
@@ -16,24 +16,23 @@ export class NavBar {
         });
     }
 
-    // login() {
-    //     return this.login()
-    //         .then(response => {
-    //             this.userObj = response.user;
-    //             sessionStorage.setItem("userObj", JSON.stringify(this.userObj));
-    //             this.router.navigate('home');
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //             this.loginError = "Invalid credentials.";
-    //         });
-    // };
+    login() {
+        return this.login()
+            .then(response => {
+                this.todoObj = response.todo;
+                sessionStorage.setItem("todoObj", JSON.stringify(this.todoObj));
+                this.router.navigate('home');
+            })
+            .catch(error => {
+                console.log(error);
+                this.loginError = "Invalid credentials.";
+            });
+    };
 
-    // logout() {
-    //     this.logout();
-    //     // if (this.userObj) this.auth.logout(this.userObj.email);
-    //     sessionStorage.removeItem('user');
+    logout() {
+        this.logout();
+        sessionStorage.removeItem('todo');
 
         
-    // }
+    }
 }

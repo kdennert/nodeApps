@@ -1,5 +1,6 @@
-var FooSchema = new FooSchema({
-foo: {type: String},
-woo: { type: String, enum: ['boo', 'zoo', 'moo'] },
+var ToDoSchema = new Schema({
+todo: {type: String},
+priotity: { type: String, enum: ['High', 'Medium', 'Low'] },
+done: { type: Boolean, default: false }
 });
-module.exports = Mongoose.model('Foo', FooSchema);
+module.exports = Mongoose.model('Todo', Schema);

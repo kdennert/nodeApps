@@ -11,9 +11,9 @@ export class App {
         name: 'Home',
       },
       {
-        route: 'foos',
-        moduleId: './modules/foos',
-        name: 'Foos',
+        route: 'todos',
+        moduleId: './modules/todos',
+        name: 'Todos',
       },
     ]);
   }
