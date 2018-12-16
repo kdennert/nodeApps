@@ -95,7 +95,7 @@ module.exports = function (app, config) {
     }));
 
     var storage = multer.diskStorage({
-        destination: function (req, file, cb) {
+        destination: function (req, image, cb) {
             var path = config.uploads + '/products';
             mkdirp(path, function (err) {
                 if (err) {
@@ -105,8 +105,8 @@ module.exports = function (app, config) {
                 }
             });
         },
-        imagename: function (req, image, cb) {
-            file.fileName = file.originalname;
+        imageName: function (req, image, cb) {
+            image.imageName = file.originalname;
             cb(null, file.fieldname + '-' + Date.now());
         }
     });
@@ -117,11 +117,11 @@ module.exports = function (app, config) {
         logger.log('info', 'Uploading image');
         await Product.findById(req.params.id).then(result => {
             for (var i = 0, x = req.files.length; i < x; i++) {
-                var file = {
-                    originalFileName: req.files[i].originalname,
+                var image = {
+                    originalImageName: req.files[i].originalName,
                     fileName: req.files[i].filename
                 };
-                result.file = file;
+                result.image = image;
             }
             result.save().then(result => {
                 res.status(200).json(result);

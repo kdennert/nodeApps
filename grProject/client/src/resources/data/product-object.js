@@ -49,7 +49,7 @@ export class Product {
     }
 
     async uploadFile(files, id) {
-        await this.data.uploadFiles(files, this.PRODUCT_SERVICE + "/upload/" + id);
+        await this.data.uploadFiles(products, this.PRODUCT_SERVICE + "/upload/" + id);
     }
 
     // async uploadFile(files, id) {
