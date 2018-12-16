@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-left">
             <div class="col-12">
         
                 <br></br>
@@ -16,19 +16,21 @@
                         <thead class="thead-dark">
                             <tr >
                                 <th scope="col">Image</th>
+                                <th scope="col">See Reviews</th>
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">URL</th>
-                                <th scope="col">See Reviews</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             <tr repeat.for="product of products.productsArray">
-                                <td img src="http://localhost:5000/uploadedFiles/products/${product.image.imageName}" target="_blank"></td>
+                                <td img src="http://localhost:5000/uploadedFiles/products/${productName.file.fileName}" target="_blank" ${review.file.originalFileName}></td>
+                                <td click.trigger="getProductReviews(product)"><i data-feather="star"></i></td> 
                                 <td click.trigger="editProduct(product)">${product.productName}</td>
                                 <td click.trigger="editProduct(product)">${product.description}</td>
-                                <td click.trigger="editProduct(product)">${product.url}</td>     
-                                <td click.trigger="getProductReviews(product)"><i data-feather="star"></i></td> 
+                                <td class="dont-break-out" click.trigger="editProduct(product)">${product.url}</td>     
+                              
                             </tr>
                         </tbody>
                 </table>

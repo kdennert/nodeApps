@@ -95,7 +95,7 @@ module.exports = function (app, config) {
     }));
 
     var storage = multer.diskStorage({
-        destination: function (req, image, cb) {
+        destination: function (req, file, cb) {
             var path = config.uploads + '/products';
             mkdirp(path, function (err) {
                 if (err) {
@@ -106,8 +106,8 @@ module.exports = function (app, config) {
             });
         },
         imagename: function (req, image, cb) {
-            image.imageName = image.originalname;
-            cb(null, image.imagename + '-' + Date.now());
+            file.fileName = file.originalname;
+            cb(null, file.fieldname + '-' + Date.now());
         }
     });
 
@@ -116,12 +116,12 @@ module.exports = function (app, config) {
     router.post('/products/upload/:id', upload.any(), asyncHandler(async (req, res) => {
         logger.log('info', 'Uploading image');
         await Product.findById(req.params.id).then(result => {
-            for (var i = 0, x = req.images.length; i < x; i++) {
-                var image = {
-                    originalImageName: req.images[i].originalname,
-                    imageName: req.images[i].imagename
+            for (var i = 0, x = req.files.length; i < x; i++) {
+                var file = {
+                    originalFileName: req.files[i].originalname,
+                    fileName: req.files[i].filename
                 };
-                result.image = image;
+                result.file = file;
             }
             result.save().then(result => {
                 res.status(200).json(result);
@@ -217,11 +217,11 @@ module.exports = function (app, config) {
         })
     }));
 
-    app.post('/api/picture_upload', function(req,res){
-        var newPic = new Pic();
-        newPic.image.data = fs.readfileSync(req.files.userPhoto.path)
-        newPic.image.contentType = 'image/png';
-        newPic.save();
-    })
+    // app.post('/api/picture_upload', function(req,res){
+    //     var newPic = new Pic();
+    //     newPic.file.data = fs.readfileSync(req.files.userPhoto.path)
+    //     newPic.file.contentType = 'image/png';
+    //     newPic.save();
+    // })
 
 };

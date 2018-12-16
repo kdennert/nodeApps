@@ -14,29 +14,27 @@
                             <input type="text" class="form-control" value.bind="product.productName" id="productName"
                                 placeholder="Product Name">
                         </div> -->
-                        <!-- <div class="form-group">
-                            <label for="userName">User ID</label>
-                            <input type="text" class="form-control" value.bind="userName" id="userName" placeholder="Description">
-                        </div> -->
-                        <a href="${product.url}">${product.url}</a>
-                        <!-- <div class="form-group">
-                            <label for="url">URL</label>
-                            <input type="text" class="form-control" value.bind="product.url" id="url" placeholder="URL">
-                        </div> -->
-                        <div class="row">
-                            <img src="/${product.image}">
-                            
-                            <div class="form-group" style="margin-top:10px;">
-                                <label for="review">Product Review</label>
-                                <textarea value.bind="productReview.review" class="form-control" rows="5" cols="40"></textarea>
-                            </div> 
 
-                            <div class="col-2">
-                                <label class="btn btn-primary">
-                                    Browse for files&hellip; <input type="file" style="display: none;" change.delegate="changeFiles()"
+                        <div class="dont-break-out">
+                            <a href="${product.url}">${product.url}</a>
+                          
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group" style="margin-top:10px;">
+                                <label for="review">New Product Review</label>
+                                <textarea value.bind="productReview.review" class="form-control" rows="5" cols="40"></textarea>
+                                <!-- <label class="btn btn-primary" style="margin-top:10px">
+                                    Browse for files&hellip; <input type="file" style="display: none" change.delegate="changeFiles()"
                                         files.bind="files">
-                                </label>
+                                </label> -->
                             </div>
+
+                            <div>
+                                <img src="http://localhost:5000/uploadedFiles/products/${review.file.fileName}" target="_blank"
+                                    ${review.file.originalFileName}>
+                            </div>
+                           
                             <div class="col-10">
                                 <ul>
                                     <li repeat.for="file of filesToUpload" class="list-group-item">${file.name}<span
@@ -46,9 +44,9 @@
                         </div>
 
                         <br>
-            
 
-                         <div class="card" repeat.for="review of products.reviewsArray">
+
+                        <div class="card" repeat.for="review of products.reviewsArray">
                             <div class="card-body">
                                 <div class="row" style="padding:3px;">
                                     <div class="col-3">
@@ -59,10 +57,7 @@
                                     <div class="col-9" style="border-left-style: solid; border-left-width: 1px;">
                                         ${review.review}
                                     </div>
-                                    <div>
-                                        <a href="http://localhost:5000/uploadedFiles/products/${Review.file.fileName}"
-                                            target="_blank">${review.file.originalFileName}</a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

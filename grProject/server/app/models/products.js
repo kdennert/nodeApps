@@ -8,7 +8,7 @@ var productSchema = new Schema({
     description: { type: String, require: true },
     url: { type: String, require: true },
     productImage: { 
-        imageName: { type: String, data: Buffer },
+        imageName: { type: String },
         originalImageName: { type: String }
     },
 });

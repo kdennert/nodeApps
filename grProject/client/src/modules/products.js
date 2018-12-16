@@ -30,7 +30,7 @@ async activate(){
 
     newProduct() {
         this.product = {
-            productImage: "",
+            file: "",
             productName: "",
             description: "",
             url: "",
@@ -87,8 +87,8 @@ async activate(){
         if (this.product && this.product.productName && this.product.description && this.product.url) {
             let obj = {product: this.product, review: this.productReview};
                 let serverResponse = await this.products.saveProduct(obj);
-                if (this.imagesToUpload && this.imagesToUpload.length > 0) 
-                this.products.uploadImage(this.imagesToUpload, serverResponse.contentID);
+                if (this.filesToUpload && this.filesToUpload.length > 0) 
+                this.products.uploadFile(this.filesToUpload, serverResponse.contentID);
             await this.getProducts();
             this.back();
         }
@@ -97,8 +97,8 @@ async activate(){
     async saveReview(){
         if(this.productReview && this.productReview.review){
             await this.products.saveReview(this.productReview);
-            if (this.imagesToUpload && this.imagesToUpload.length > 0) 
-                this.products.uploadImage(this.imagesToUpload, serverResponse.contentID);
+            if (this.filesToUpload && this.filesToUpload.length > 0) 
+                this.products.uploadFile(this.filesToUpload, serverResponse.contentID);
         }
         this.back();
     }
@@ -139,8 +139,8 @@ async activate(){
 
     back() {
         this.showProductEditForm = 'table';
-        this.imagesToUpload = new Array();
-        this.images = new Array();
+        this.filesToUpload = new Array();
+        this.files = new Array();
     }
 
     backReview(){
@@ -148,14 +148,14 @@ async activate(){
         this.showProductEditForm = 'table';
     }
 
-    changeImages() {
-        this.imagesToUpload = this.imagesToUpload ? this.imagesToUpload : new Array();
-        for (var i = 0; i < this.images.length; i++) {
-        let addImage = true;
-        this.imagesToUpload.forEach(item => {
-            if (item.name === this.images[i].name) addImage = false;
+    changeFiles() {
+        this.filesToUpload = this.filesToUpload ? this.filesToUpload : new Array();
+        for (var i = 0; i < this.files.length; i++) {
+        let addFile = true;
+        this.filesToUpload.forEach(item => {
+            if (item.name === this.files[i].name) addFile = false;
         })
-            if (addImage) this.imagesToUpload.push(this.images[i]);
+            if (addFile) this.filesToUpload.push(this.files[i]);
         }
         }
         

@@ -48,12 +48,12 @@ export class Product {
         this.reviewsArray = response;
     }
 
-    async uploadImage(images, id) {
-        await this.data.uploadImages(images, this.PRODUCT_SERVICE + "/upload/" + id);
+    async uploadFile(files, id) {
+        await this.data.uploadFiles(files, this.PRODUCT_SERVICE + "/upload/" + id);
     }
 
-    async uploadFile(files, id) {
-        await this.data.uploadFiles(files, this.PRODUCT_REVIEW_SERVICE + "/upload/" + id );
-    }
+    // async uploadFile(files, id) {
+    //     await this.data.uploadFiles(files, this.PRODUCT_REVIEW_SERVICE + "/upload/" + id );
+    // }
     
 }
