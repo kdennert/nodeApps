@@ -224,6 +224,66 @@
             "date": 1544389351718,
             "name": "log\\application-2018-12-09-15.log",
             "hash": "f2a813174e64ddab87d7b51d6c1860c3"
+        },
+        {
+            "date": 1544584673724,
+            "name": "log\\error-2018-12-11-21.log",
+            "hash": "c008121799f1521a95084624b145e35e"
+        },
+        {
+            "date": 1544584673730,
+            "name": "log\\application-2018-12-11-21.log",
+            "hash": "fd93e36d23a428fd121a64ee03c1685e"
+        },
+        {
+            "date": 1544655453586,
+            "name": "log\\error-2018-12-12-16.log",
+            "hash": "6e92f3aea723b650c2ef42dcbede7165"
+        },
+        {
+            "date": 1544655453695,
+            "name": "log\\application-2018-12-12-16.log",
+            "hash": "d7bb7e81937469a109fc061886cf02de"
+        },
+        {
+            "date": 1544655638271,
+            "name": "log\\application-2018-12-12-17.log",
+            "hash": "c6a8b95283b7ec6a2678202de1c71d88"
+        },
+        {
+            "date": 1544657139922,
+            "name": "log\\error-2018-12-12-17.log",
+            "hash": "b45d6ff92654e68f345a4c7e01a17b40"
+        },
+        {
+            "date": 1544668644163,
+            "name": "log\\error-2018-12-12-20.log",
+            "hash": "daff3a2ca17de6dc4eb526d9f283ab9b"
+        },
+        {
+            "date": 1544668644183,
+            "name": "log\\application-2018-12-12-20.log",
+            "hash": "22e8ac7e138efec6f9583ffd774f2165"
+        },
+        {
+            "date": 1544670006789,
+            "name": "log\\application-2018-12-12-21.log",
+            "hash": "ce72582ea75005131745973f596312be"
+        },
+        {
+            "date": 1544670009411,
+            "name": "log\\error-2018-12-12-21.log",
+            "hash": "37c98bb773bf06d5857060e31514eea7"
+        },
+        {
+            "date": 1544673676329,
+            "name": "log\\application-2018-12-12-22.log",
+            "hash": "33f0b29bf934dbef983530dc9a5fed7b"
+        },
+        {
+            "date": 1544673724303,
+            "name": "log\\error-2018-12-12-22.log",
+            "hash": "7768589c327fc65e210eef9ae54d3be3"
         }
     ]
 }

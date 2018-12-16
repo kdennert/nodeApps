@@ -18,7 +18,7 @@ export class HelpTickets {
         feather.replace()
     }
 
-    async getHelpTickets() {
+    async getHelpTicket() {
         await this.helpTickets.getHelpTickets(this.userObj);
     }
 
@@ -59,15 +59,15 @@ export class HelpTickets {
             let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent };
             let serverResponse = await this.helpTickets.saveHelpTicket(helpTicket);
             if (this.filesToUpload && this.filesToUpload.length > 0) this.helpTickets.uploadFile(this.filesToUpload, serverResponse.contentID);
-            await this.getHelpTickets();
+            await this.getHelpTicket();
             this.back();
         }
     }
 
     async delete() {
         if (this.helpTicket) {
-            await this.helpTickets.delete(this.helpTicket);
-            await this.getHelpTickets();
+            await this.helpTickets.deleteHelpTicket(this.helpTicket);
+            await this.getHelpTicket();
             this.back();
         }
     }

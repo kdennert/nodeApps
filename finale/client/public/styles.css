@@ -1,0 +1,44 @@
+h1{
+    text-align: left;
+    color:rgb(15, 15, 102);
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.btn {
+    color: yellow;
+    background-color: black;
+    margin-left: 20px;
+    border: 5px solid gray
+}
+
+.div {
+    width: 250px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 20px;
+  }
+
+/* 
+.btn-primary {
+    color: var(--button-color);
+    background-color: var(--button-background-color);
+    border-radius: var(--border-radius);
+  } */ 
+/*   
+.btn-primary:hover {
+    box-shadow: inset 0 0 0 20rem var(--darken-1);
+}
+
+.btn-primary:active {
+  box-shadow: inset 0 0 0 20rem var(--darken-2),
+    inset 0 3px 4px 0 var(--darken-3),
+    0 0 1px var(--darken-2);
+}
+
+.btn-primary:disabled,
+.btn-primary.is-disabled {
+  opacity: .5;
+}
+
+

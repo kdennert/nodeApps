@@ -46,9 +46,9 @@ module.exports = function (app, config) {
             })
     }));
 
-    router.put('/users/password/:userId', requireAuth, function (req, res, next) {
+    router.put('/users/password/:userId', requireAuth, asyncHandler(async (req, res) => {
         logger.log('Update user ' + req.params.userId, 'verbose');
-        User.findById(req.params.userId)
+        await User.findById(req.params.userId)
             .exec()
             .then(function (user) {
                 if (req.body.password !== undefined) {
@@ -65,7 +65,7 @@ module.exports = function (app, config) {
             .catch(function (err) {
                 return next(err);
             });
-    });
+    }));
 
 
     router.route('/users/password/:id').put(function (req, res, next) {

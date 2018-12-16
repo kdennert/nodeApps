@@ -33,12 +33,12 @@ export class Users {
       password: "",
     }
     this.openEditForm();
-this.showUserEditForm = true;
+// this.showUserEditForm = true;
   }
 
   editUser(user) {
     this.user = user;
-    this.showUserEditForm = true;
+    this.openEditForm();
   }
 
   openEditForm() {
