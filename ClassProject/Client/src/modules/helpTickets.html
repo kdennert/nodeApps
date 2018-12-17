@@ -2,7 +2,12 @@
     <h1>${message}</h1>
     <!--  <button click.trigger="newHelpTicket()">New Help Ticket</button>
 		<button click.trigger="logout()">Logout</button> -->
-
+        <style>
+			body {
+					background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3mp8L1GjDCDH5QThXYHmEF2E0feY4KEsa_szkOtAhdkS9hEZbog');
+					background-size: cover
+				}
+	</style>
 	    <compose show.bind="showHelpTicketEditForm" view="./components/editHelpTicket.html"> </compose>
 	    <compose show.bind="!showHelpTicketEditForm" view="./components/tableHelpTicket.html"> </compose>
     </template>
